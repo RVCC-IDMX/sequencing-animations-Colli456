@@ -22,18 +22,39 @@ const alice1 = document.querySelector("#alice1");
 
 // promise
 const alice2 = document.querySelector("#alice2");
-const animation1 = alice1.animate(aliceTumbling, aliceTiming);
-animation1.finished.then(function() {
-  const animation2 = alice2.animate(aliceTumbling, aliceTiming);
-  return animation2.finished;
-}).then (function() {
-  const animation3 = alice3.animate(aliceTumbling, aliceTiming);
-  return animation3.finished;
-});
+// const animation1 = alice1.animate(aliceTumbling, aliceTiming);
+// animation1.finished.then(function() {
+//   const animation2 = alice2.animate(aliceTumbling, aliceTiming);
+//   return animation2.finished;
+// }).then (function() {
+//   const animation3 = alice3.animate(aliceTumbling, aliceTiming);
+//   return animation3.finished;
+// });
 
 
 const alice3 = document.querySelector("#alice3");
 
+// const animation1 = alice1.animate(aliceTumbling, aliceTiming);
+// animation1.onfinish (async function() {
+//   const animation2 = await alice2.animate(aliceTumbling, aliceTiming);
+//   return animation2.finished;
+// }) (async function() {
+//   const animation3 = await alice3.animate(aliceTumbling, aliceTiming);
+//   return animation3.finished;
+// });
+
+const animation1 = alice1.animate(aliceTumbling, aliceTiming);
+animation1.onfinish = async function() {
+  const animation2 = alice2.animate(aliceTumbling, aliceTiming);
+  
+  const animation3 = await alice3.animate(aliceTumbling, aliceTiming);
+}
+
+//   const animation2 = await alice2.animate(aliceTumbling, aliceTiming);
+//   animation2.onfinish = function() {
+//     const animation3 = alice3.animate(aliceTumbling, aliceTiming);
+//   }
+// }
 
 
 // const animation1 = alice1.animate(aliceTumbling, aliceTiming);
